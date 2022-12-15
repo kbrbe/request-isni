@@ -1,3 +1,6 @@
+# Used Python environment
+py-request-isni-env/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
