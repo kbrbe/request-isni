@@ -3,7 +3,9 @@
 Python scripts to perform ISNI requests via a provided AtomPub API and report the outcome in CSV files.
 
 ISNI is the [ISO 27729:2012](https://www.iso.org/standard/44292.html) standard name identifier that uniquely identifies public entities who contributed to creative works.
-As an ISNI registration agency, the Royal Library of Belgium (KBR) can request ISNI identifiers from the ISNI central database. The scripts of this repository are used to perform such requests against the ISNI [AtomPub API](https://isni.org/page/technical-documentation/): each request is one XML file containing the local KBR identifier of a public entity, the response XML files are stored, and a CSV report is generated showing the outcome of the performed requests, for example the newly assigned ISNI identifiers.
+As an ISNI registration agency, the Royal Library of Belgium (KBR) can request ISNI identifiers from the ISNI central database.
+
+The scripts of this repository are used to perform such requests against the ISNI [AtomPub API](https://isni.org/page/technical-documentation/): each request is one XML file containing the local KBR identifier of a public entity, the response XML files are stored, and a CSV report is generated showing the outcome of the performed requests, for example the newly assigned ISNI identifiers.
 
 ## Usage
 
@@ -36,8 +38,16 @@ Instead of providing the URL via commandline parameter, you can also create a `.
 
 ## Software tests
 
-Functions in `lib.py` contain doctests, additionally there is an overal testfile `test_request_isni.py` to test the scrtip `request_isni.py`.
-The code coverage can be computed by executing `coverage run test_request_isni.py` from within the `request_isni` directory. Afterwards a report can be generated with `coverage html`.
+Functions in `lib.py` contain doctests, additionally there is an overal testfile `test_request_isni.py` to test the script `request_isni.py`.
+The code coverage can be computed by executing the following commands (generated HTML files will highlight which paths in the code were not covered by the tests).
+
+```bash 
+# compute the code coverage from within the directory request_isni
+coverage run test_request_isni.py`
+
+# generate a human-friendly report in HTML
+coverage html
+```
 
 ## License
 
