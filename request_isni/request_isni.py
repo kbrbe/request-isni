@@ -55,6 +55,7 @@ def main(inputFolder, outputFile, responseFolder, url):
     print(f'The provided inputFolder "{inputFolder}" is not a directory!')
     exit(1)
 
+  # explicitly specify newline character empty to avoid problems on Windows-based systems
   with open(outputFile, 'w', encoding='utf-8', newline='') as outFile:
     outputWriter = csv.DictWriter(outFile, fieldnames=['KBRID', 'surname', 'forename', 'isniStatus', 'ISNI', 'PPN', 'SOURCE', 'comment'])
     outputWriter.writeheader()
@@ -62,6 +63,9 @@ def main(inputFolder, outputFile, responseFolder, url):
     if not os.path.exists(responseFolder):
       os.makedirs(responseFolder)
 
+    #
+    # collect all relevant ISNI requests files from the input directory
+    #
     allFiles = os.listdir(inputFolder)
     allXMLFiles = []
     for inputFile in os.listdir(inputFolder):
