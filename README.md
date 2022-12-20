@@ -34,6 +34,11 @@ Please note, that you should be an ISNI member to use this API. If your IP is no
 
 Instead of providing the URL via commandline parameter, you can also create a `.env` file with the following content: `ISNI_ATOM_URL=https://isni-m.oclc.org:/ATOM/isni?`.
 
+## Software tests
+
+Functions in `lib.py` contain doctests, additionally there is an overal testfile `test_request_isni.py` to test the scrtip `request_isni.py`.
+The code coverage can be computed by executing `coverage run test_request_isni.py` from within the `request_isni` directory. Afterwards a report can be generated with `coverage html`.
+
 ## License
 
 The license of this software was chosen using https://ufal.github.io/public-license-selector and based on licenses of software libraries used by this repo:
@@ -41,6 +46,9 @@ The license of this software was chosen using https://ufal.github.io/public-lice
 | Library | Description | License |
 |---------|-------------|---------|
 | certifi | Providing the list of Mozilla's carefully curated collection of Root certificates, such that we can communicate securely with the ISNI server via https. | [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/) |
+| charset-normalizer | A library to help reading text from an unknown charset encoding, this library is used by the `requests` library we are using. | [MIT](https://opensource.org/licenses/MIT) |
+| coverage | A tool to compute the code coverage. We use this for quality control during our software tests, i.e. to ensure all paths in the code are covered during tests. | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
+| idna | A library to handle internationalized domain names. It is used by `urllib3` and therefore indirectly by our project . | [BSD 3-clause](https://opensource.org/licenses/BSD-3-Clause) |
 | python-dotenv | Functionality to load a .env environment file and make the environment variables accessible in Python. We use this library to provide the functionality of specifying the ISNI API URL in an environment variable instead of via a commandline parameter. | [BSD 3-clause](https://opensource.org/licenses/BSD-3-Clause) |
 | requests | We use this library to perform HTTP requests against the ISNI APIs. | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
 | urllib3 | Used by the requests library to make requests, thus implicitly used to make API requests against the ISNI APIs. | [MIT](https://opensource.org/licenses/MIT) |
